@@ -17,7 +17,9 @@ jobs:
 
       - name: Run a multi-line script
         run: |
-          wget https://www.post.japanpost.jp/zipcode/dl/kogaki/zip/ken_all.zip -P $GITHUB_WORKSPACE
-          wget https://www.post.japanpost.jp/zipcode/dl/jigyosyo/zip/jigyosyo.zip -P $GITHUB_WORKSPACE
+          rm -f "$GITHUB_WORKSPACE/ken_all.zip"
+          rm -f "$GITHUB_WORKSPACE/jigyosyo.zip"
+          wget -P "$GITHUB_WORKSPACE" https://www.post.japanpost.jp/zipcode/dl/kogaki/zip/ken_all.zip
+          wget -P "$GITHUB_WORKSPACE" https://www.post.japanpost.jp/zipcode/dl/jigyosyo/zip/jigyosyo.zip
 
       - uses: stefanzweifel/git-auto-commit-action@v4
